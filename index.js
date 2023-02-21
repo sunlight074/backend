@@ -29,6 +29,7 @@ app.get('/api/list-user',(_req, res)=>{
 })
 
 app.post('/api/register',(req, res)=>{ //POST ใช้สำหรับสร้างข้อมูล
+    console.log('เรียก ',req.body)
     res.send({ result: req.body })
 })
 
