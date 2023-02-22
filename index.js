@@ -3,7 +3,6 @@ const cors = require('cors')
 const con = require('./connection')
 const app = express()
 
-
 const port = 5174
 
 const userData = [
