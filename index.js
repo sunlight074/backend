@@ -33,16 +33,16 @@ app.get('/',(_req, res)=> { // get ใช้สำหรับดึงข้อ
     res.send('hello world')
 })
 
-app.get('/api/list-user',(_req, res)=>{
+app.get('/api/list-user',(_req, res)=>{ // get ใช้สำหรับดึงข้อมูล
     res.send({result:userData})
 })
 
-app.post('/api/register',(req, res)=>{ //POST ใช้สำหรับสร้างข้อมูล
+app.post('/api/register',(req, res)=>{ // POST ใช้สำหรับสร้างข้อมูล
     console.log('เรียก ',req.body)
     res.send({ result: req.body })
 })
 
-app.post('/api/login',(req, res)=>{ //POST ใช้สำหรับสร้างข้อมูล
+app.post('/api/login',(req, res)=>{ // POST ใช้สำหรับสร้างข้อมูล
     res.send({ result: req.body })
 })
 
