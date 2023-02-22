@@ -24,6 +24,15 @@ con.connect((err) =>{
     console.log('Connected')
 })
 
+// สร้าง Table ชื่อ USER
+con.query("CREATE TABLE IF NOT EXISTS USER (user_id int NOT NULL AUTO_INCREMENT ,first_name VARCHAR(255),last_name VARCHAR(255),email VARCHAR(255),password VARCHAR(255),create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (user_id)) DEFAULT CHARSET= utf8",
+(err)=> {
+    if(err) throw err
+    console.log('create table success')
+    con.end()
+})
+
+
 app.use(express.json());
 
 app.use(cors(corsOption))

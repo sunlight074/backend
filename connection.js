@@ -4,7 +4,8 @@ const con = mysql.createConnection({
     host:"localhost",
     port:3308,
     user:"test",
-    password:"test"
+    password:"test",
+    database:'test'
 });
 
 module.exports = con
