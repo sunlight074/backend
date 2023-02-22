@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
+const con = require('./connection')
 const app = express()
-const mysql = require('mysql2')
+
 
 const port = 5174
 
@@ -17,13 +18,6 @@ const corsOption = {
     origin : '*',
     credentials : true
 }
-
-const con = mysql.createConnection({
-    host:"localhost",
-    port:3308,
-    user:"test",
-    password:"test"
-});
 
 con.connect((err) =>{
     if(err) throw err
