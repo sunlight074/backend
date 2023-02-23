@@ -26,7 +26,6 @@ con.query("CREATE TABLE IF NOT EXISTS USER (user_id int NOT NULL AUTO_INCREMENT 
 (err)=> {
     if(err) throw err
     console.log('create table success')
-    con.end()
 })
 
 //ให้สามารถอ่านข้อมูลประเภท json ได้
