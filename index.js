@@ -1,18 +1,12 @@
 const express = require('express') // ไลบรารี่สำหรับทำ api
 const cors = require('cors') // ไลบรารี่สำหรับกำหนดการเชื่อมต่อ api
+const handlerRegister = require('./controller/register')
+const handlerLogin = require('./controller/login')
+const handlerListUser = require('./controller/list-user')
 
 const con = require('./connection')  // เรียก con จากไฟล์ connection.js
 const app = express() // เรียกใช้งานฟังก์ชั้นสำหรับการสร้าง api
 const port = 5174 // ประกาศ port
-
-// mock ข้อมูล
-const userData = [
-    {name:'วาณี1', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-    {name:'วาณี2', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-    {name:'วาณี3', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-    {name:'วาณี4', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-    {name:'วาณี5', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-]
 
 // อนุญาตให้เชื่อมต่อ api ได้ทั้งหมดไม่ว่าจะมาจาแอปไหน
 const corsOption = {
@@ -41,18 +35,11 @@ app.use(express.json());
 //อนุญาตทุกแอป
 app.use(cors(corsOption))
 
-app.get('/api/list-user',(_req, res)=>{ // get ใช้สำหรับดึงข้อมูลรายชื่อผู้ใช้งานระบบ
-    res.send({result:userData})
-})
+app.get('/api/list-user',handlerListUser)// get ใช้สำหรับดึงข้อมูลรายชื่อผู้ใช้งานระบบ
 
-app.post('/api/register',(req, res)=>{ // POST ใช้สำหรับสร้างข้อมูลผู้ใช้งานระบบ
-    console.log('เรียก ',req.body)
-    res.send({ result: req.body })
-})
+app.post('/api/register',handlerRegister) // POST ใช้สำหรับสร้างข้อมูลผู้ใช้งานระบบ
 
-app.post('/api/login',(req, res)=>{ // POST ใช้สำหรับตรวจสอบผู้ใช้งานระบบ
-    res.send({ result: req.body })
-})
+app.post('/api/login', handlerLogin) // POST ใช้สำหรับตรวจสอบผู้ใช้งานระบบ
 
 // รันด้วย port 5174
 app.listen(port, ()=>{
