@@ -1,5 +1,20 @@
+const con = require('../../connection')
+
 const handlerLogin = (req , res) => {
-    res.send({result:'wanee'})
+    const {email , password } = req.body
+
+    try{
+        con.query(`SELECT * FROM USER WHERE email = '${email}' AND password = '${password}'`,
+        (err , result , _fields) => {
+            if(err) {
+                  return res.status(400).send();
+            }
+
+            return res.status(200).json({result : result})
+        })
+    }catch(err){
+        return res.status(500).send();
+    }
 }
 
 module.exports = handlerLogin
