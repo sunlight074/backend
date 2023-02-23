@@ -1,3 +1,4 @@
+#ไฟลล์ docker-compose  ไฟลล์นี้จะเป็นการสร้างฐานข้อมูล โดยใช้เป็น mysql version 5.7
 version: '3'
 services:
   db:
