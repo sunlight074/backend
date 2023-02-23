@@ -19,7 +19,7 @@ npm install
 docker-compose up -d
 ```
 
-และก็รัน  backend ขึ้นมาจามลำดับ
+และก็รัน  backend ขึ้นมาตามลำดับ
 
 ```bash
 npm run dev
