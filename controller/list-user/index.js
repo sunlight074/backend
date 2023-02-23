@@ -1,14 +1,18 @@
-const handlerListUser = (req , res) => {
-    // mock ข้อมูล
-    const userData = [
-        {name:'วาณี1', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-        {name:'วาณี2', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-        {name:'วาณี3', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-        {name:'วาณี4', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-        {name:'วาณี5', lastname:'ปุยเจริญ', email:'wanee@gmail.com'},
-    ]
+const con = require('../../connection')
 
-    res.send({result: userData })
+const handlerListUser = (_req , res) => {
+    try{
+        con.query(`SELECT * FROM USER`,     
+        (err , result , _fields) => {
+            if(err) {       
+                  return res.status(400).send();
+            }
+
+            return res.status(200).json({ result : result})
+        })
+    }catch(err){
+        return res.status(500).send();
+    }
 }
 
 module.exports = handlerListUser
