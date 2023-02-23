@@ -5,7 +5,7 @@ const handlerRegister = (req , res) => {
 
     try{
         con.query(`INSERT INTO USER (email ,password,first_name ,last_name ) VALUES ('${email}','${password}','${first_name}','${last_name}')`,
-        (err , result , fields) => {
+        (err , _result , _fields) => {
             if(err) {
                   return res.status(400).send();
             }
