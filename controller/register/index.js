@@ -10,7 +10,7 @@ const handlerRegister = (req , res) => {
                   return res.status(400).send();
             }
 
-            if(result.length === 1){ // แปลว่าไม่มีข้อมูล
+            if(result.length === 1){ // แปลว่ามีข้อมูล
                 return res.status(400).send();
             }
 
@@ -19,7 +19,7 @@ const handlerRegister = (req , res) => {
             if(err) {
                   return res.status(400).send();
             }
-            
+
             return res.status(201).json({message : 'successfully created'})
         })
 
