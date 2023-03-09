@@ -7,7 +7,7 @@ const handlerLogin = (req , res) => {
         con.query(`SELECT * FROM USER WHERE email = '${email}' AND password = '${password}'`,
         (err , result , _fields) => {
             if(err) {
-                  return res.status(400).send();
+                  return res.status(500).send(); // แสดงว่า database มีปัญหาหรือเรียกว่าลืมรัน database ไม่ก็เชื่อมต่อฐานข้อมุลไม่ติดแต่แรก
             }
 
             if(result.length === 0){ // แปลว่าไม่มีข้อมูล
