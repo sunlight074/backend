@@ -1,5 +1,13 @@
 ## การ Installation
 
+ต้องติดตั้ง  node  ลงมาบนเครื่องก่อนโดยใช้ version 16  ขึ้นไป
+โดยใช้  https://nodejs.org/en/download
+
+ถ้าติดตั้งแล้วใช้คำสั่งนี่เช็คนะ
+```bash
+node -v
+```
+
 โปรเจคนี้เราจะใช้ npm เป็น package manager
 
 โดยถ้าหาก clone โปรเจคมาแล้วจะต้องทำการติดตั้ง node module ก่อนโดยใช้คำสั่ง
